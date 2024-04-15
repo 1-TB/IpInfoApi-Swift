@@ -9,7 +9,6 @@ import SwiftUI
 import SwiftData
 
 struct ContentView: View {
-    private var accessToken = ""
     @State var ipInput = ""
     @State var isShowingIpInfo = false
     @State var ip: IP = IP()
@@ -21,18 +20,23 @@ struct ContentView: View {
             VStack{
                 Text("IP Info")
                     .font(.title)
-                    .foregroundColor(.white)
-                TextField("Enter IP address", text: $ipInput)
-                    .padding()
                     .foregroundColor(.green)
-                    .background(Color.white)
-                    .cornerRadius(5)
-                    .padding()
+                    .font(.custom("Courier", size: 24))
+                
+                TextField("Enter IP address", text: $ipInput)
+                             .padding()
+                             .foregroundColor(.green)
+                             .accentColor(.green)
+                             .multilineTextAlignment(.center)
+                             .cornerRadius(5)
+                             .border(.green, width: 1)
+                             .font(.custom("Courier", size: 24))
                 Button(action: {
                    try? Task {
                         do {
                             ip = try await getIP()
                             isShowingIpInfo.toggle()
+                            ipInput = ip.ip ?? "127.0.0.1"
                             print(ip)
                         } catch {
                             print(error)
@@ -41,22 +45,28 @@ struct ContentView: View {
                 }, label: {
                     Label.init("Search", systemImage: "magnifyingglass")
                         .padding()
-                        .foregroundColor(.white)
-                        .background(Color.green)
+                        .foregroundColor(.green)
+                        .background(Color.black)
                         .cornerRadius(5)
                         .padding()
+                        .font(.custom("Courier", size: 16))
                 })
                 
             }.sheet(isPresented: $isShowingIpInfo, content: {
                 ipInfoView(ip: $ip)
             })
-        }
-    }
-    
-    func getIP() async throws -> IP {
-      
+        }.onAppear(perform: {
+            Task {
+                do {
+                    ip = try await getIP()
+                    ipInput = ip.ip ?? ""
+                }
+            }
+        })
         
-        guard let apiURL = URL(string: "https://ipinfo.io/\(ipInput)?token=\(accessToken)") else {
+    }
+    func getIP() async throws -> IP {
+        guard let apiURL = URL(string: "https://ipinfo.io/\(ipInput)") else {
             throw IPError.invalidURL
         }
         
