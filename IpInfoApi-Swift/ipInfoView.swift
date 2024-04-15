@@ -10,30 +10,35 @@ import SwiftUI
 struct ipInfoView: View {
     var ip: IP
     var body: some View {
-        Text(ip.ip ?? "")
-            .font(.title)
-            .foregroundColor(.white)
-        Text(ip.city ?? "")
-            .font(.title)
-            .foregroundColor(.white)
-        Text(ip.region ?? "")
-            .font(.title)
-            .foregroundColor(.white)
-        Text(ip.country ?? "")
-            .font(.title)
-            .foregroundColor(.white)
-        Text(ip.loc ?? "")
-            .font(.title)
-            .foregroundColor(.white)
-        Text(ip.org ?? "")
-            .font(.title)
-            .foregroundColor(.white)
-        Text(ip.postal ?? "")
-            .font(.title)
-            .foregroundColor(.white)
-        Text(ip.timezone ?? "")
-            .font(.title)
-            .foregroundColor(.white)
+        ZStack{
+            Color.black
+            VStack{
+                Text(ip.ip ?? "")
+                    .font(.title)
+                    .foregroundColor(.white)
+                Text(ip.city ?? "")
+                    .font(.title)
+                    .foregroundColor(.white)
+                Text(ip.region ?? "")
+                    .font(.title)
+                    .foregroundColor(.white)
+                Text(ip.country ?? "")
+                    .font(.title)
+                    .foregroundColor(.white)
+                Text(ip.loc ?? "")
+                    .font(.title)
+                    .foregroundColor(.white)
+                Text(ip.org ?? "")
+                    .font(.title)
+                    .foregroundColor(.white)
+                Text(ip.postal ?? "")
+                    .font(.title)
+                    .foregroundColor(.white)
+                Text(ip.timezone ?? "")
+                    .font(.title)
+                    .foregroundColor(.white)
+            }
+        }
         
     }
 }

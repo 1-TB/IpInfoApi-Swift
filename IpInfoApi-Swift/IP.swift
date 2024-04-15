@@ -10,4 +10,14 @@ import Foundation
 struct IP: Codable {
     let ip, city, region, country: String?
     let loc, org, postal, timezone: String?
+    init() {
+        ip = ""
+        city = ""
+        region = ""
+        country = ""
+        loc = ""
+        org = ""
+        postal = ""
+        timezone = ""
+    }
 }
