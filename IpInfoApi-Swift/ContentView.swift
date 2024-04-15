@@ -9,6 +9,8 @@ import SwiftUI
 import SwiftData
 
 struct ContentView: View {
+    //access token is needed
+    private var accessToken = ""
     @State var ipInput = ""
     @State var isShowingIpInfo = false
     @State var ip: IP = IP()
@@ -51,7 +53,7 @@ struct ContentView: View {
                         .padding()
                         .font(.custom("Courier", size: 16))
                 })
-                
+        
             }.sheet(isPresented: $isShowingIpInfo, content: {
                 ipInfoView(ip: $ip)
             })
@@ -66,7 +68,9 @@ struct ContentView: View {
         
     }
     func getIP() async throws -> IP {
-        guard let apiURL = URL(string: "https://ipinfo.io/\(ipInput)") else {
+      
+        
+        guard let apiURL = URL(string: "https://ipinfo.io/\(ipInput)?token=\(accessToken)") else {
             throw IPError.invalidURL
         }
         
