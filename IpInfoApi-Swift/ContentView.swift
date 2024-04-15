@@ -9,53 +9,39 @@ import SwiftUI
 import SwiftData
 
 struct ContentView: View {
-    @Environment(\.modelContext) private var modelContext
-    @Query private var items: [Item]
-
+    private var ips: [IP] = []
+    private var accessToken = ""
+    @State var ipInput = ""
+    
+    
     var body: some View {
-        NavigationSplitView {
-            List {
-                ForEach(items) { item in
-                    NavigationLink {
-                        Text("Item at \(item.timestamp, format: Date.FormatStyle(date: .numeric, time: .standard))")
-                    } label: {
-                        Text(item.timestamp, format: Date.FormatStyle(date: .numeric, time: .standard))
-                    }
-                }
-                .onDelete(perform: deleteItems)
-            }
-            .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    EditButton()
-                }
-                ToolbarItem {
-                    Button(action: addItem) {
-                        Label("Add Item", systemImage: "plus")
-                    }
-                }
-            }
-        } detail: {
-            Text("Select an item")
-        }
-    }
-
-    private func addItem() {
-        withAnimation {
-            let newItem = Item(timestamp: Date())
-            modelContext.insert(newItem)
-        }
-    }
-
-    private func deleteItems(offsets: IndexSet) {
-        withAnimation {
-            for index in offsets {
-                modelContext.delete(items[index])
+        ZStack{
+            Color.black.ignoresSafeArea()
+            VStack{
+                Text("IP Info")
+                    .font(.title)
+                    .foregroundColor(.white)
+                TextField("Enter IP address", text: $ipInput)
+                    .padding()
+                    .foregroundColor(.green)
+                    .background(Color.white)
+                    .cornerRadius(5)
+                    .padding()
+                Button(action: {
+                    
+                }, label: {
+                    Label.init("Search", systemImage: "magnifyingglass")
+                        .padding()
+                        .foregroundColor(.white)
+                        .background(Color.green)
+                        .cornerRadius(5)
+                        .padding()
+                })
+                
             }
         }
     }
 }
-
 #Preview {
     ContentView()
-        .modelContainer(for: Item.self, inMemory: true)
 }

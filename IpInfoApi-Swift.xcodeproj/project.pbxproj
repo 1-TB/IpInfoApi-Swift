@@ -9,18 +9,20 @@
 /* Begin PBXBuildFile section */
 		17F605292BCD696100EE82EC /* IpInfoApi_SwiftApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F605282BCD696100EE82EC /* IpInfoApi_SwiftApp.swift */; };
 		17F6052B2BCD696100EE82EC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F6052A2BCD696100EE82EC /* ContentView.swift */; };
-		17F6052D2BCD696100EE82EC /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F6052C2BCD696100EE82EC /* Item.swift */; };
+		17F6052D2BCD696100EE82EC /* IP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F6052C2BCD696100EE82EC /* IP.swift */; };
 		17F6052F2BCD696300EE82EC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17F6052E2BCD696300EE82EC /* Assets.xcassets */; };
 		17F605322BCD696300EE82EC /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17F605312BCD696300EE82EC /* Preview Assets.xcassets */; };
+		17F6053B2BCD6E3300EE82EC /* ipInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F6053A2BCD6E3300EE82EC /* ipInfoView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		17F605252BCD696100EE82EC /* IpInfoApi-Swift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "IpInfoApi-Swift.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		17F605282BCD696100EE82EC /* IpInfoApi_SwiftApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IpInfoApi_SwiftApp.swift; sourceTree = "<group>"; };
 		17F6052A2BCD696100EE82EC /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		17F6052C2BCD696100EE82EC /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		17F6052C2BCD696100EE82EC /* IP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IP.swift; sourceTree = "<group>"; };
 		17F6052E2BCD696300EE82EC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		17F605312BCD696300EE82EC /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		17F6053A2BCD6E3300EE82EC /* ipInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ipInfoView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,7 +57,8 @@
 			children = (
 				17F605282BCD696100EE82EC /* IpInfoApi_SwiftApp.swift */,
 				17F6052A2BCD696100EE82EC /* ContentView.swift */,
-				17F6052C2BCD696100EE82EC /* Item.swift */,
+				17F6053A2BCD6E3300EE82EC /* ipInfoView.swift */,
+				17F6052C2BCD696100EE82EC /* IP.swift */,
 				17F6052E2BCD696300EE82EC /* Assets.xcassets */,
 				17F605302BCD696300EE82EC /* Preview Content */,
 			);
@@ -141,8 +144,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				17F6052B2BCD696100EE82EC /* ContentView.swift in Sources */,
-				17F6052D2BCD696100EE82EC /* Item.swift in Sources */,
+				17F6052D2BCD696100EE82EC /* IP.swift in Sources */,
 				17F605292BCD696100EE82EC /* IpInfoApi_SwiftApp.swift in Sources */,
+				17F6053B2BCD6E3300EE82EC /* ipInfoView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
