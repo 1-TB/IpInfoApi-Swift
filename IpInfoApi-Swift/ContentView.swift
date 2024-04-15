@@ -48,7 +48,7 @@ struct ContentView: View {
                 })
                 
             }.sheet(isPresented: $isShowingIpInfo, content: {
-                ipInfoView(ip: ip)
+                ipInfoView(ip: $ip)
             })
         }
     }
@@ -71,6 +71,7 @@ struct ContentView: View {
         } catch {
             throw IPError.decodingFailed
         }
+        
     }
     
     enum IPError: Error {

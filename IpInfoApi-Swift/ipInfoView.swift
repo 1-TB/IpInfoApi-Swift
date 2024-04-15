@@ -8,17 +8,18 @@
 import SwiftUI
 
 struct ipInfoView: View {
-    var ip: IP
+    @Binding var ip: IP
+    
     var body: some View {
         ZStack{
             Color.black
             VStack{
                 Text(ip.ip ?? "")
                     .font(.title)
-                    .foregroundColor(.white)
+                    .foregroundColor(.green)
                 Text(ip.city ?? "")
                     .font(.title)
-                    .foregroundColor(.white)
+                    .foregroundColor(.green)
                 Text(ip.region ?? "")
                     .font(.title)
                     .foregroundColor(.white)
