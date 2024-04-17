@@ -11,6 +11,7 @@ struct ipInfoView: View {
     
     let textColor = Color.green
     let font = Font.custom("Courier", size: 18)
+    @State private var isShowingMap = false
     
     var body: some View {
         ZStack {
@@ -88,8 +89,24 @@ struct ipInfoView: View {
                         .font(font)
                         .foregroundColor(textColor)
                 }
+                Button(action: {
+                    isShowingMap.toggle()
+                }, label: {
+                    Text("Open in map view")
+                        .font(font)
+                        .foregroundColor(.black)
+                        .padding()
+                        .background(Color.green)
+                        .cornerRadius(5)
+                        .padding()
+                        .font(font)
+                })
             }
             .padding()
+          
         }
+        .sheet(isPresented: $isShowingMap, content: {
+            MapView(lat: Double(ip.loc?.split(separator: ",")[0] ?? "0") ?? 0, long: Double(ip.loc?.split(separator: ",")[1] ?? "0") ?? 0, ip: ip.ip ?? "")
+        })
     }
 }
