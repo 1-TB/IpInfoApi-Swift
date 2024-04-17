@@ -34,7 +34,7 @@ struct ContentView: View {
                              .border(.green, width: 1)
                              .font(.custom("Courier", size: 24))
                 Button(action: {
-                   try? Task {
+                   Task {
                         do {
                             ip = try await getIP()
                             isShowingIpInfo.toggle()
