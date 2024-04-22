@@ -17,8 +17,11 @@ struct MapView: View {
         ZStack{
             Color.black.ignoresSafeArea()
             VStack{
+                //Passed from parent
                 let ipLocation = CLLocationCoordinate2D(latitude: lat, longitude: long)
+                //Creates the map
                 Map {
+                    //Marker set marker
                     Marker(ip, coordinate: ipLocation)
                         .tint(.orange)
                 }

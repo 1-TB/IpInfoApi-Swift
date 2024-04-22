@@ -16,7 +16,7 @@ struct ipInfoView: View {
     var body: some View {
         ZStack {
             Color.black.ignoresSafeArea()
-            
+            //Get values from ip construct and display info
             VStack(alignment: .leading, spacing: 10) {
                 HStack {
                     Text("IP Address:")
@@ -105,6 +105,7 @@ struct ipInfoView: View {
             .padding()
           
         }
+        //Split loc at "," to get long and lat if nill set to 0
         .sheet(isPresented: $isShowingMap, content: {
             MapView(lat: Double(ip.loc?.split(separator: ",")[0] ?? "0") ?? 0, long: Double(ip.loc?.split(separator: ",")[1] ?? "0") ?? 0, ip: ip.ip ?? "")
         })
